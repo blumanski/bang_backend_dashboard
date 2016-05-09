@@ -1,5 +1,5 @@
 {
-    "name": "blumanski/bang_dashboard",
+    "name": "blumanski/bbang_backend_dashboard",
     "description": "Dashboard module for Bang Framework - Backend",
     "type": "library",
     "license": "MIT",
