@@ -18,7 +18,10 @@ if(typeof(pappkey) != 'undefined') {
 								  
 						if(response == 1) {
 							
-							$('#chat-window').append('<div class="chat-block"><span class="chat-label">'+data.username+'</span><span class="chat-message">'+data.message+'</span></div>');
+							$('#chat-window').append('<div class="chat-block"><span class="chat-label" style="background: '+data.colour+'; color: '+data.fontc+'">'+data.username+'</span><span class="chat-message">'+data.message+'</span></div>');
+							
+							var box = document.getElementById('chat-window');
+							box.scrollTop = box.scrollHeight;
 						}
 					});
 				}

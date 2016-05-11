@@ -1,7 +1,7 @@
 /** Chat */
 #chat-window {
 	width: 100%;
-	min-height: 400px;
+	height: 400px;
 	overflow: auto;
 	border: 1px solid #cdcdcd;
 	padding: 10px;
@@ -15,12 +15,15 @@
 	   .chat-label {
 	       display: block;
 	       float: left;
-	       width: 80px;
+	       width: 20%;
+	       padding: 5px;
 	       background: #efefef;
 	   }
 	   
 	   .chat-message {
 	       dipslay: block;
+	       width: 80%;
+           overflow: hidden;
 	       float: left;
 	       padding-left: 5px;
 	   }

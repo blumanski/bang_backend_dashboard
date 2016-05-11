@@ -140,6 +140,15 @@ class ajaxController extends \Bang\SuperController
     			$identifier = substr(md5($this->Session->getUserEmail()), 0, 12);
     			$user = $this->Session->getUser();
     			 
+    			
+    			$data['colour']			= '#'.substr(md5($user['username']), 0, 6);
+    			
+    			if(substr($data['colour'], 1, 1) < 7) {
+    				$data['fontc']			= '#fff';
+    			}
+    			
+    			$data['fontc']			= '#333';
+    			
     			$data['message'] 		= htmlspecialchars($post['message'], ENT_QUOTES, 'UTF-8');
     			$data['date']			= date('Y-m-d H:i:s');
     			$data['identifier'] 	= $identifier;
