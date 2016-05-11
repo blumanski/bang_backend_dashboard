@@ -23,6 +23,15 @@
 <!--start container-->
 <div class="container content-wrapper">
 	<div class="section">
+	
+		<nav>
+			<div class="nav-wrapper">
+				<ul id="nav-mobile" class="left hide-on-med-and-down">
+		        <li><a href="/dashboard/forum/index/"><?php echo $this->Lang->write('dashboard_simple_forum');?></a></li>
+		        <li class="active"><a href="/dashboard/chat/index/"><?php echo $this->Lang->write('dashboard_simple_chat');?></a></li>
+		      </ul>
+			</div>
+		</nav>
 
 		<div class="action-wrapper">
 			<div class="table-datatables">
@@ -32,6 +41,8 @@
 					<div class="col s12 m8">
 			        
 						<div id="chat-wrapper">
+						
+							<p><?php $this->Lang->write('dashboard_chat_description');?></p>
 						
 							<div id="chat-window"></div>
 						

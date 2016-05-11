@@ -29,6 +29,15 @@
 <!--start container-->
 <div class="container content-wrapper">
 	<div class="section">
+	
+		<nav>
+			<div class="nav-wrapper">
+				<ul id="nav-mobile" class="left hide-on-med-and-down">
+		        <li class="active"><a href="/dashboard/forum/index/"><?php echo $this->Lang->write('dashboard_simple_forum');?></a></li>
+		        <li><a href="/dashboard/chat/index/"><?php echo $this->Lang->write('dashboard_simple_chat');?></a></li>
+		      </ul>
+			</div>
+		</nav>
 
 		<div class="action-wrapper">
 			<div class="table-datatables">
