@@ -9,11 +9,11 @@
  * 
  */
 
-Namespace Bang\Modules\Account;
+Namespace Bang\Modules\Dashboard;
 
-Use Bang\Modules\Account\Models\Db,
-	Bang\Modules\Account\Models\Mail,
-	Bang\Tools\Awss3,
+Use Bang\Modules\Dashboard\Models\Db,
+	Bang\Modules\Dashboard\Models\Mail,
+	Bang\Tools\PusherWrapper,
     Bang\Helper;
 
 class ajaxController extends \Bang\SuperController
@@ -68,6 +68,7 @@ class ajaxController extends \Bang\SuperController
     	$currentLang = $this->View->Lang->LangLoaded;
     	
     	$this->Overwrite = $this->getBackTplOverwrite();
+    	$this->Pusher			= new PusherWrapper();
 
     	// Add module language files to language array
     	$this->View->Lang->addLanguageFile($this->path.'/lang/'.$currentLang);
@@ -121,6 +122,36 @@ class ajaxController extends \Bang\SuperController
         }
         
         die(json_encode(array('response' => 'failed')));
+    }
+    
+    /**
+     * Send a chat message to pusher
+     */
+    public function chatMessageAction()
+    {
+    	$post = Helper::getRequestParams('post');
+    	$post = Helper::prepareAjaxValues($post);
+    	
+    	// trigger pusher notification, only if pusher config data is set
+    	if(isset(CONFIG['pusher']) && isset(CONFIG['pusher']['appid']) && !empty(CONFIG['pusher']['appid'])) {
+    	
+    		if(is_array($post) && isset($post['message']) && !empty($post['message'])) {
+    		
+    			$identifier = substr(md5($this->Session->getUserEmail()), 0, 12);
+    			$user = $this->Session->getUser();
+    			 
+    			$data['message'] 		= htmlspecialchars($post['message'], ENT_QUOTES, 'UTF-8');
+    			$data['date']			= date('Y-m-d H:i:s');
+    			$data['identifier'] 	= $identifier;
+    			$data['username'] 		= $user['username'];
+    			$this->Pusher->triggerEvent(CONFIG['pusher']['chatchannel'], 'intern_chat', $data);
+    			
+    			die(json_encode(array('outcome' => 'success', 'message' => 'Send message to pusher..')));
+    			
+    		}
+    	}
+    	
+    	die(json_encode(array('outcome' => 'false', 'message' => 'in move node methos')));
     }
     
     /**

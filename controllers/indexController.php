@@ -80,7 +80,8 @@ class indexController extends \Bang\SuperController implements \Bang\ControllerI
 
     	// Add module language files to language array
     	$this->View->Lang->addLanguageFile($this->path.'/lang/'.$currentLang);
-    	$this->View->addStyle($this->View->TemplatePath.'min/css/account/assets/scss/account.min.css', 0);
+    	$this->View->addStyle($this->View->TemplatePath.'min/css/dashboard.min.css', 0);
+    	$this->View->addScript($this->View->TemplatePath.'min/js/dashboard.js', 0);
 
     	// All of the methods in this class are login protected
     	$this->testPermisions();
@@ -113,7 +114,6 @@ class indexController extends \Bang\SuperController implements \Bang\ControllerI
     	$this->View->setModuleTpl('dashboard', $template);
     	
     }
-
    
     /**
      * Permission test

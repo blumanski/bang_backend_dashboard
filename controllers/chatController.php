@@ -18,7 +18,7 @@ Use Bang\Modules\Dashboard\Models\Db,
 	Bang\Modules\Dashboard\Models\Mail,
     Bang\Helper;
 
-class forumController extends \Bang\SuperController implements \Bang\ControllerInterface
+class chatController extends \Bang\SuperController implements \Bang\ControllerInterface
 {
 	/**
 	 * Modules DB Model
@@ -98,14 +98,14 @@ class forumController extends \Bang\SuperController implements \Bang\ControllerI
     	
     	$template = '';
     	 
-    	if(file_exists($this->Overwrite.'dashboard'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'forum.php')) {
-    		$template = $this->View->loadTemplate($this->Overwrite.'dashboard'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'forum.php');
+    	if(file_exists($this->Overwrite.'dashboard'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'chat.php')) {
+    		$template = $this->View->loadTemplate($this->Overwrite.'dashboard'.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'chat.php');
     	} else {
-    		$template  = $this->View->loadTemplate($this->path.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'forum.php');
+    		$template  = $this->View->loadTemplate($this->path.DIRECTORY_SEPARATOR.'templates'.DIRECTORY_SEPARATOR.'chat.php');
     	}
     	 
     	// main template
-    	$this->View->setModuleTpl('forum', $template);
+    	$this->View->setModuleTpl('chat', $template);
     	
     }
 

@@ -1,0 +1,35 @@
+/** Chat */
+#chat-window {
+	width: 100%;
+	min-height: 400px;
+	overflow: auto;
+	border: 1px solid #cdcdcd;
+	padding: 10px;
+	color: #333;
+	
+	.chat-block {
+	   width: 100%;
+	   overflow: hidden;
+	   margin-top: 3px;
+	   
+	   .chat-label {
+	       display: block;
+	       float: left;
+	       width: 80px;
+	       background: #efefef;
+	   }
+	   
+	   .chat-message {
+	       dipslay: block;
+	       float: left;
+	       padding-left: 5px;
+	   }
+	}
+}
+
+#form-chat {
+	margin-top: 25px;
+	input[type="text"] {
+	   width: 80%;
+	}
+}
